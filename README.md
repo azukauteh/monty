@@ -3,7 +3,7 @@
 ```
 # 0x19. C - Stacks, Queues - LIFO, FIFO
 
-This repository contains solutions for the project "0x19. C - Stacks, Queues - LIFO, FIFO" as part of the low-level programming curriculum at [Holberton School](https://www.holbertonschool.com/). The project focuses on implementing and understanding the concepts of stacks and queues, and their respective behaviors: LIFO (Last-In-First-Out) and FIFO (First-In-First-Out).
+This directory contains solutions for the project "0x19. C - Stacks, Queues - LIFO, FIFO" as part of the low-level programming curriculum for Alx Sofware Engineering. This project focuses on implementing and understanding the concepts of stacks and queues, and their respective behaviors: LIFO (Last-In-First-Out) and FIFO (First-In-First-Out).
 
 ## Learning Objectives
 
@@ -17,7 +17,7 @@ By completing this project, you will:
 
 ## Project Contents
 
-The repository contains the following files and directories:
+This directory contains the following files:
 
 - **monty**: This directory contains the source code files for the Monty interpreter. The interpreter reads Monty bytecode files and executes the operations specified in them using a stack or queue data structure.
 - **tests**: This directory contains test files used to verify the correctness of the Monty interpreter.
