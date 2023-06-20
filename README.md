@@ -39,8 +39,8 @@ To use the Monty interpreter:
 
 ## Resources
 
-- [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
-- [Queue (abstract data type)](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
+- [Stack (abstract data type)](https://https://www.digitalocean.com/community/tutorials/stack-in-c))
+- [Queue (abstract data type)](https://data-flair.training/blogs/stacks-and-queues-in-c/))
 
 ## Author
 
