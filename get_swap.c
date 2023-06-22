@@ -6,19 +6,21 @@
  */
 void monty_swap(stack_t **stack, unsigned int line_number)
 {
+
 stack_t *tmp;
 
-if ((*stack)->next == NULL || (*stack)->next->next == NULL)
-{
-set_op_tok_error(short_stack_error(line_number, "swap"));
-return;
-}
-tmp = (*stack)->next->next;
-(*stack)->next->next = tmp->next;
-(*stack)->next->prev = tmp;
-if (tmp->next)
-tmp->next->prev = (*stack)->next;
-tmp->next = (*stack)->next;
-tmp->prev = *stack;
-(*stack)->next = tmp;
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	tmp = (*stack)->next;
+	(*stack)->next = tmp->next;
+	(*stack)->prev = tmp;
+	if (tmp->next != NULL)
+		tmp->next->prev = *stack;
+	tmp->next = *stack;
+	tmp->prev = NULL;
+	*stack = tmp;
 }

@@ -1,19 +1,28 @@
 #include "monty.h"
+
 /**
- * monty_add - Adds the top two values of a stack_t linked list.
- * @stack: A pointer to the top mode node of a stack_t linked list.
- * @line_number: The current working line number of a Monty bytecodes file.
+ * monty_add - function that adds the top two elements of the stack
+ * @stack: double pointer to the top of the stack
+ * @line_number: line number where the command appears
  *
- * Description: The result is stored in the second value node
- *              from the top and the top value  is removed.
+ * Description: Adds the second top element of the stack to the top element.
+ * Return: void
  */
 void monty_add(stack_t **stack, unsigned int line_number)
 {
-if ((*stack)->next == NULL || (*stack)->next->next == NULL)
-{
-set_op_tok_error(short_stack_error(line_number, "add"));
-return;
+	stack_t *first, *second;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	first = *stack;
+	second = first->next;
+	second->n += first->n;
+	*stack = second;
+	(*stack)->prev = NULL;
+	free(first);
 }
-(*stack)->next->next->n += (*stack)->next->n;
-monty_pop(stack, line_number);
-}
+

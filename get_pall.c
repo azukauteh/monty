@@ -1,6 +1,5 @@
 #include "monty.h"
- 
-void monty_pall(stack_t **stack, unsigned int line_number);
+
 /**
  * monty_pall - Prints the values of a stack_t linked list.
  * @stack: A pointer to the top mode node of a stack_t linked list.

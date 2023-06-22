@@ -1,29 +1,26 @@
 #include "monty.h"
 
 
-
 /**
- * monty_mod - Computes the modulus of the second value from the
- *             top of a stack_t linked list  by the top value.
- * @stack: A pointer to the top mode node of a stack_t linked list.
- * @line_number: The current working line number of a Monty bytecodes file.
- *
- * Description: The result is stored in the second value node
- *              from the top and the top value is removed.
+ * monty_mod - Computes the rest of the division of the second top element by the top element
+ * @stack: Double pointer to the top of the stack
+ * @line_number: Line number where the opcode is encountered
  */
 void monty_mod(stack_t **stack, unsigned int line_number)
 {
-if ((*stack)->next == NULL || (*stack)->next->next == NULL)
-{
-set_op_tok_error(short_stack_error(line_number, "mod"));
-return;
-}
-if ((*stack)->next->n == 0)
-{
-set_op_tok_error(div_error(line_number));
-return;
-}
-(*stack)->next->next->n %= (*stack)->next->n;
-monty_pop(stack, line_number);
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	(*stack)->next->n %= (*stack)->n;
+	 monty_mod(stack, line_number);
 }
 
