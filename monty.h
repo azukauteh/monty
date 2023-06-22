@@ -8,7 +8,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <sys/types.h>
-
+#include <fcntl.h>
 #define STACK 0
 #define QUEUE 1
 #define DELIMS " \n\t\a\b"
@@ -95,6 +95,7 @@ int pchar_error(unsigned int line_number, char *message);
 
 /* strdup_fuction */
 char *strdup(const char *str);
-
+/*main protyp*/
+int main(int argc, char **argv);
 #endif /* __MONTY_H__ */
 
