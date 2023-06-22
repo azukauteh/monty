@@ -1,7 +1,5 @@
 #include "monty.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+
 
 /**
  * main - the entry point for Monty Interp
