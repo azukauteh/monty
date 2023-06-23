@@ -11,6 +11,7 @@
 #include <fcntl.h>
 
 #define STACK 0
+#define STACK_SIZE 100
 #define QUEUE 1
 #define DELIMS " \n\t\a\b"
 

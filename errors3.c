@@ -1,4 +1,5 @@
 #include "monty.h"
+
 int div_error(unsigned int line_number);
 int pchar_error(unsigned int line_number, char *message);
 
@@ -6,7 +7,7 @@ int pchar_error(unsigned int line_number, char *message);
  * div_error - Prints division error messages for division by 0.
  * @line_number: Line number in Monty bytecodes file where error occurred.
  *
- * Return: (EXIT_FAILURE) always.
+ * Return: Always returns EXIT_FAILURE.
  */
 int div_error(unsigned int line_number)
 {
@@ -20,10 +21,11 @@ return (EXIT_FAILURE);
  * @line_number: Line number in Monty bytecodes file where error occurred.
  * @message: The corresponding error message to print.
  *
- * Return: (EXIT_FAILURE) always.
+ * Return: Always returns EXIT_FAILURE.
  */
 int pchar_error(unsigned int line_number, char *message)
 {
 fprintf(stderr, "L%u: can't pchar, %s\n", line_number, message);
 return (EXIT_FAILURE);
+
 }

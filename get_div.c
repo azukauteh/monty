@@ -2,7 +2,7 @@
 
 
 /**
- * get_div - function that divides the top two elements of the stack
+ * monty_div - function that divides the top two elements of the stack
  * @stack: double pointer to the top of the stack
  * @line_number: line number where the command appears
  *

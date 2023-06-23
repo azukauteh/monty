@@ -1,13 +1,15 @@
 #include "monty.h"
 
 /**
- * monty_pint - function that prints the top element on the stack
- * @stack: pointer to head of the stack
- * @line_number: where the instruction appears
- * Description: 1. pint
- * Return: see below
- * 1. upon success, nothing
- * 2. upon fail, EXIT_FAILURE
+ * monty_pint - Function that prints the top element on the stack
+ * @stack: Pointer to the head of the stack
+ * @line_number: Line number where the instruction appears
+ *
+ * Description:
+ *  - pint
+ *
+ * Return:
+ *  - No explicit return value. Exits with EXIT_FAILURE on failure.
  */
 void monty_pint(stack_t **stack, unsigned int line_number)
 {
@@ -19,4 +21,3 @@ void monty_pint(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", (*stack)->n);
 }
-

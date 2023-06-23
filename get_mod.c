@@ -2,7 +2,10 @@
 
 
 /**
- * monty_mod - Computes the rest of the division of the second top element by the top element
+ * monty_mod - Computes the rest of the division of
+ * the second top element by the top element
+ *
+ *
  * @stack: Double pointer to the top of the stack
  * @line_number: Line number where the opcode is encountered
  */

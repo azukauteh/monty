@@ -16,54 +16,47 @@ int is_delim(char ch, char *delims);
 
 char **strtow(char *str, char *delims)
 {
-    char **words = NULL;
-    int wc = 0;
-	int wordLen, i = 0;
+char **words = NULL;
+int wc = 0;
+int wordLen, i = 0;
 
-    if (str == NULL || !*str)
-        return NULL;
+if (str == NULL || !*str)
+return (NULL);
 
-   /* wc = get_word_count(str, delims);*/
-    if (wc == 0)
-        return NULL;
+/* wc = get_word_count(str, delims);*/
+if (wc == 0)
+return (NULL);
 
-    words = malloc((wc + 1) * sizeof(char *));
-    if (words == NULL)
-        return NULL;
+words = malloc((wc + 1) * sizeof(char *));
+if (words == NULL)
+return (NULL);
 
-    while (*str)
-    {
-        if (*str == '\0')
-            break;
-
-        while (*str && strchr(delims, *str))
-            str++;
-
-        if (*str == '\0')
-            break;
-
-        wordLen = 0;
-        while (str[wordLen] && !strchr(delims, str[wordLen]))
-            wordLen++;
-
-        words[i] = malloc((wordLen + 1) * sizeof(char));
-        if (words[i] == NULL)
-        {
-            while (i > 0)
-                free(words[--i]);
-            free(words);
-            return NULL;
-        }
-
-        strncpy(words[i], str, wordLen);
-        words[i][wordLen] = '\0';
-        i++;
-
-        str += wordLen;
-    }
-
-    words[i] = NULL;
-    return words;
+while (*str)
+{
+if (*str == '\0')
+break;
+while (*str && strchr(delims, *str))
+str++;
+if (*str == '\0')
+break;
+wordLen = 0;
+while (str[wordLen] && !strchr(delims, str[wordLen]))
+wordLen++;
+words[i] = malloc((wordLen + 1) * sizeof(char));
+if (words[i] == NULL)
+{
+while (i > 0)
+free(words[--i]);
+free(words);
+return (NULL);
+}
+strncpy(words[i], str, wordLen);
+words[i][wordLen] = '\0';
+i++;
+str += wordLen;
+}
+words[i] = NULL;
+return (words);
 }
 
 /**
@@ -115,5 +108,3 @@ i++;
 }
 return (wLen);
 }
-
-

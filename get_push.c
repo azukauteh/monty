@@ -1,5 +1,7 @@
 #include "monty.h"
+
 char **op_toks;
+int check_mode(stack_t *stack);
 
 /**
  * monty_push - Pushes a value to a stack_t linked list.
@@ -14,12 +16,12 @@ int i;
 new = malloc(sizeof(stack_t));
 if (new == NULL)
 {
-malloc_error();
+
 return;
 }
 if (op_toks[1] == NULL)
 {
-set_op_tok_error(no_int_error(line_number));
+fprintf(stderr, "L%d: usage: push integer\n", line_number);
 free(new);
 return;
 }
@@ -29,7 +31,7 @@ if (op_toks[1][i] == '-' && i == 0)
 continue;
 if (op_toks[1][i] < '0' || op_toks[1][i] > '9')
 {
-set_op_tok_error(no_int_error(line_number));
+fprintf(stderr, "L%d: usage: push integer\n", line_number);
 free(new);
 return;
 }

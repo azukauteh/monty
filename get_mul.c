@@ -1,11 +1,12 @@
 #include "monty.h"
 
 /**
- * get_mul - function that multiplies the top two elements of the stack
+ * monty_mul - function that multiplies the top two elements of the stack
  * @stack: double pointer to the top of the stack
  * @line_number: line number where the command appears
  *
- * Description: Multiplies the second top element of the stack with the top element.
+ * Description: Multiplies the second top element of the
+ * stack with the top element.
  * Return: void
  */
 void monty_mul(stack_t **stack, unsigned int line_number)
