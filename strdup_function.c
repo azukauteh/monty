@@ -1,5 +1,6 @@
 #include "monty.h"
 #include <string.h>
+#include <stdlib.h>
 
 char *strdup(const char *str);
 
@@ -11,17 +12,14 @@ char *strdup(const char *str);
  */
 char *strdup(const char *str)
 {
-char *dup = NULL;
-size_t len;
+    char *dup = NULL;
+    size_t len;
 
-if (!str)
-return (NULL);
+    len = strlen(str);
+    dup = malloc((len + 1) * sizeof(char));
+    if (!dup)
+        return NULL;
 
-len = strlen(str);
-dup = malloc((len + 1) * sizeof(char));
-if (!dup)
-return (NULL);
-
-strcpy(dup, str);
-return (dup);
+    strcpy(dup, str);
+    return dup;
 }
