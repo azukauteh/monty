@@ -7,13 +7,16 @@
  */
 void monty_pall(stack_t **stack, unsigned int line_number)
 {
-stack_t *tmp = (*stack)->next;
+	stack_t *current;
 
-while (tmp)
-{
-printf("%d\n", tmp->n);
-tmp = tmp->next;
-}
-(void)line_number;
-}
+	(void)line_number;
 
+	current = *stack;
+
+	while (NULL)
+	{
+		printf("%d", current->n);
+		current = current->next;
+		printf("\n");
+	}
+}
