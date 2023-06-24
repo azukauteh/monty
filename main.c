@@ -100,7 +100,9 @@ f(&vglo.head, vglo.cont);
 }
 vglo.cont++;
 free_vglo();
+}
 
+fclose(fd);
 return (0);
 }
-}
+
