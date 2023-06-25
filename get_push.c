@@ -8,33 +8,32 @@
  * @cline: line number
  * Return: no return
  */
+
 void _push(stack_t **doubly, unsigned int cline)
 {
-	int n, j;
+int n, j;
 
-	if (!vglo.arg)
-	{
-		fprintf(stderr, "L%u: ", cline);
-		fprintf(stderr, "_push, integer\n");
-		free_vglo();
-		exit(EXIT_FAILURE);
-	}
-
-	for (j = 0; vglo.arg[j] != '\0'; j++)
-	{
-		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
-		{
-			fprintf(stderr, "L%u: ", cline);
-			fprintf(stderr, "usage: push integer\n");
-			free_vglo();
-			exit(EXIT_FAILURE);
-		}
-	}
-	n = atoi(vglo.arg);
-
-	if (vglo.lifo == 1)
-		add_dnodeint(doubly, n);
-	else
-		add_dnodeint_end(doubly, n);
+if (!vglo.arg)
+{
+fprintf(stderr, "L%u: usage: push integer\n", cline);
+free_vglo();
+exit(EXIT_FAILURE);
 }
 
+for (j = 0; vglo.arg[j] != '\0'; j++)
+{
+if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
+{
+fprintf(stderr, "L%u: usage: push integer\n", cline);
+free_vglo();
+exit(EXIT_FAILURE);
+}
+}
+
+n = atoi(vglo.arg);
+
+if (vglo.lifo == 1)
+add_dnodeint(doubly, n);
+else
+add_dnodeint_end(doubly, n);
+}

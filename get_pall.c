@@ -1,22 +1,19 @@
 #include "monty.h"
 
 /**
- * _pall - prints all values on the stack
- *
- * @doubly: head of the linked list
- * @cline: line numbers
- * Return: no return
+ *_pall - Prints the values of a stack_t linked list.
+ * @stack: A pointer to the top mode node of a stack_t linked list.
+ * @line_number: The current working line number of a Monty bytecodes file.
  */
-void _pall(stack_t **doubly, unsigned int cline)
+
+void _pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *aux;
-	(void)cline;
+	stack_t *tmp = (*stack)->next;
 
-	aux = *doubly;
-
-	while (aux)
+	while (tmp)
 	{
-		printf("%d\n", aux->n);
-		aux = aux->next;
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 	}
+	(void)line_number;
 }
