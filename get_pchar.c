@@ -1,25 +1,27 @@
 #include "monty.h"
+
 /**
- * _pchar - print the char value of the first element
+ * _pchar - Prints the char value of the top element.
  *
- * @doubly: head of the linked list
- * @cline: line number;
- * Return: no return
+ * @stack: A pointer to the top node of a stack_t linked list.
+ * @line_number: The current working line number of a Monty bytecodes file.
  */
-void _pchar(stack_t **doubly, unsigned int cline)
+void _pchar(stack_t **stack, unsigned int line_number)
 {
-	if (doubly == NULL || *doubly == NULL)
-	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", cline);
-		free_vglo();
-		exit(EXIT_FAILURE);
-	}
-	if ((*doubly)->n < 0 || (*doubly)->n >= 128)
-	{
-		fprintf(stderr, "L%u: can't pchar, value out of range\n", cline);
-		free_vglo();
-		exit(EXIT_FAILURE);
-	}
-	printf("%c\n", (*doubly)->n);
+if (stack == NULL || *stack == NULL)
+{
+fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+free_stack(*stack);
+exit(EXIT_FAILURE);
+}
+
+if ((*stack)->n < 0 || (*stack)->n >= 128)
+{
+fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+free_stack(*stack);
+exit(EXIT_FAILURE);
+}
+
+printf("%c\n", (*stack)->n);
 }
 

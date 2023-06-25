@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <string.h>
 
 /**
  * get_opcodes - selects the correct opcode to perform

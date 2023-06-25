@@ -4,12 +4,12 @@
 /**
  * _nop - doesn't do anythinhg
  *
- * @doubly: head of the linked list
- * @cline: line number;
+ * @stack: head of the linked list
+ * @line_number: line number;
  * Return: no return
  */
-void _nop(stack_t **doubly, unsigned int cline)
+void _nop(stack_t **stack, unsigned int line_number)
 {
-	(void)doubly;
-	(void)cline;
+	(void)stack;
+	(void)line_number;
 }

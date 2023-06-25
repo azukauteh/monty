@@ -2,29 +2,29 @@
 /**
  * _rotr - reverse the stack
  *
- * @doubly: head of the linked list
- * @cline: line number
+ * @stack: head of the linked list
+ * @line_number: line number
  * Return: no return
  */
-void _rotr(stack_t **doubly, unsigned int cline)
+void _rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = NULL;
-	(void)cline;
+	(void)line_number;
 
-	if (*doubly == NULL)
+	if (*stack == NULL)
 		return;
 
-	if ((*doubly)->next == NULL)
+	if ((*stack)->next == NULL)
 		return;
 
-	aux = *doubly;
+	aux = *stack;
 
 	for (; aux->next != NULL; aux = aux->next)
 		;
 
 	aux->prev->next = NULL;
-	aux->next = *doubly;
+	aux->next = *stack;
 	aux->prev = NULL;
-	(*doubly)->prev = aux;
-	*doubly = aux;
+	(*stack)->prev = aux;
+	*stack = aux;
 }

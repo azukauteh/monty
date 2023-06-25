@@ -3,21 +3,23 @@
 /**
  * _pop - removes the top element of the stack
  *
- * @doubly: head of the linked list
- * @cline: line number
+ * @stack: head of the linked list
+ * @line_number: line number
  * Return: no return
  */
-void _pop(stack_t **doubly, unsigned int cline)
+void _pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *aux;
+stack_t *aux;
 
-	if (doubly == NULL || *doubly == NULL)
-	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", cline);
-		free_vglo();
-		exit(EXIT_FAILURE);
-	}
-	aux = *doubly;
-	*doubly = (*doubly)->next;
-	free(aux);
+if (stack == NULL || *stack == NULL)
+{
+fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+free_stack(*stack);
+exit(EXIT_FAILURE);
 }
+
+aux = *stack;
+*stack = (*stack)->next;
+free(aux);
+}
+

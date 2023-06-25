@@ -4,31 +4,31 @@
 /**
  * _swap - swaps the top two elements of the stack
  *
- * @doubly: head of the linked list
- * @cline: line number
+ * @stack: head of the linked list
+ * @line_number: line number
  * Return: no return
  */
-void _swap(stack_t **doubly, unsigned int cline)
+void _swap(stack_t **stack, unsigned int line_number)
 {
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *stack;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
 
 	if (m < 2)
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", cline);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	aux = *doubly;
-	*doubly = (*doubly)->next;
-	aux->next = (*doubly)->next;
-	aux->prev = *doubly;
-	(*doubly)->next = aux;
-	(*doubly)->prev = NULL;
+	aux = *stack;
+	*stack = (*stack)->next;
+	aux->next = (*stack)->next;
+	aux->prev = *stack;
+	(*stack)->next = aux;
+	(*stack)->prev = NULL;
 }

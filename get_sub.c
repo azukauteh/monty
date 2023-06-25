@@ -1,30 +1,22 @@
 #include "monty.h"
 
 /**
- * _sub - subtracts the top element to the second top element of the stack
+ * _sub - subtracts the top element from the second top element of the stack
  *
- * @doubly: head of the linked list
- * @cline: line number;
+ * @stack: head of the linked list
+ * @line_number: line number
  * Return: no return
  */
-void _sub(stack_t **doubly, unsigned int cline)
+void _sub(stack_t **stack, unsigned int line_number)
 {
-	int m = 0;
-	stack_t *aux = NULL;
-
-	aux = *doubly;
-
-	for (; aux != NULL; aux = aux->next, m++)
-		;
-
-	if (m < 2)
-	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", cline);
-		free_vglo();
-		exit(EXIT_FAILURE);
-	}
-
-	aux = (*doubly)->next;
-	aux->n -= (*doubly)->n;
-	_pop(doubly, cline);
+if (*stack == NULL || (*stack)->next == NULL)
+{
+fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+free_vglo();
+exit(EXIT_FAILURE);
 }
+
+(*stack)->next->n -= (*stack)->n;
+_pop(stack, line_number);
+}
+

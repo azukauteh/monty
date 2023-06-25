@@ -1,10 +1,5 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
 #define BUFFER_SIZE 256
-
-
-global_t vglo;
 
 /**
  * free_vglo - frees the global variables
@@ -13,9 +8,9 @@ global_t vglo;
  */
 void free_vglo(void)
 {
-	free_dlistint(vglo.head);
-	free(vglo.buffer);
-	fclose(vglo.fd);
+free_dlistint(vglo.head);
+free(vglo.buffer);
+fclose(vglo.fd);
 }
 
 /**
@@ -26,13 +21,33 @@ void free_vglo(void)
  */
 void start_vglo(FILE *fd)
 {
-	vglo.lifo = 1;
-	vglo.cont = 1;
-	vglo.arg = NULL;
-	vglo.head = NULL;
-	vglo.fd = fd;
-	vglo.buffer = NULL;
+vglo.lifo = 1;
+vglo.cont = 1;
+vglo.arg = NULL;
+vglo.head = NULL;
+vglo.fd = fd;
+vglo.buffer = NULL;
 }
+
+/**
+ * free_stack - Frees the memory allocated for the stack.
+ *
+ * @stack: Pointer to the head of the linked list.
+ */
+void free_stack(stack_t *stack)
+{
+stack_t *current = stack;
+stack_t *next;
+
+while (current != NULL)
+{
+next = current->next;
+free(current);
+current = next;
+}
+}
+
+
 
 /**
  * check_input - checks if the file exists and if the file can
@@ -44,24 +59,26 @@ void start_vglo(FILE *fd)
  */
 FILE *check_input(int argc, char *argv[])
 {
-	FILE *fd;
+FILE *fd;
 
-	if (argc == 1 || argc > 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-
-	fd = fopen(argv[1], "r");
-
-	if (fd == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
-
-	return (fd);
+if (argc == 1 || argc > 2)
+{
+fprintf(stderr, "USAGE: monty file\n");
+exit(EXIT_FAILURE);
 }
+
+fd = fopen(argv[1], "r");
+
+if (fd == NULL)
+{
+fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+exit(EXIT_FAILURE);
+}
+
+return (fd);
+}
+
+
 
 /**
  * main - Entry point
@@ -70,6 +87,7 @@ FILE *check_input(int argc, char *argv[])
  * @argv: argument vector
  * Return: 0 on success
  */
+
 
 
 int main(int argc, char *argv[])
@@ -105,4 +123,3 @@ free_vglo();
 fclose(fd);
 return (0);
 }
-
