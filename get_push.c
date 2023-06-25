@@ -9,30 +9,32 @@
  */
 void _push(stack_t **stack, unsigned int line_number)
 {
-int n, j;
+	int n;
 
-if (!vglo.arg)
-{
-fprintf(stderr, "L%u: usage: push integer\n", line_number);
-free_vglo();
-exit(EXIT_FAILURE);
-}
+	if (!vglo.arg)
+	{
+		fprintf(stderr, "L%u: ", line_number);
+		fprintf(stderr, "usage: push integer\n");
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
 
-for (j = 0; vglo.arg[j] != '\0'; j++)
-{
-if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
-{
-fprintf(stderr, "L%u: usage: push integer\n", line_number);
-free_vglo();
-exit(EXIT_FAILURE);
-}
-}
+	for (int j = 0; vglo.arg[j] != '\0'; j++)
+	{
+		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
+		{
+			fprintf(stderr, "L%u: ", line_number);
+			fprintf(stderr, "usage: push integer\n");
+			free_vglo();
+			exit(EXIT_FAILURE);
+		}
+	}
 
-n = atoi(vglo.arg);
+	n = atoi(vglo.arg);
 
-if (vglo.lifo == 1)
-add_dnodeint(stack, n);
-else
-add_dnodeint_end(stack, n);
+	if (vglo.lifo == 1)
+		add_dnodeint(stack, n);
+	else
+		add_dnodeint_end(stack, n);
 }
 
