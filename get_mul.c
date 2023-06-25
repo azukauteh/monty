@@ -8,10 +8,11 @@
  * @line_number: Line number.
  */
 void _mul(stack_t **stack, unsigned int line_number)
-(
-stack_t *top = *stack;
-if (*stack == NULL || (*stack)->next == NULL)
 {
+stack_t *top = *stack;
+
+if (*stack == NULL || (*stack)->next == NULL)
+}
 fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 free_stack(*stack);
 exit(EXIT_FAILURE);
