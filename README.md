@@ -1,9 +1,8 @@
-
-
-```
 # 0x19. C - Stacks, Queues - LIFO, FIFO
 
-This directory contains solutions for the project "0x19. C - Stacks, Queues - LIFO, FIFO" as part of the low-level programming curriculum for Alx Sofware Engineering. This project focuses on implementing and understanding the concepts of stacks and queues, and their respective behaviors: LIFO (Last-In-First-Out) and FIFO (First-In-First-Out).
+![Author](https://img.shields.io/badge/Author-Azuka%20Uteh-blue.svg)
+
+This Repository contains solutions for the project "0x19. C - Stacks, Queues - LIFO, FIFO" as part of the low-level programming curriculum for Alx Sofware Engineering. This project focuses on implementing and understanding the concepts of stacks and queues, and their respective behaviors: LIFO (Last-In-First-Out) and FIFO (First-In-First-Out).
 
 ## Learning Objectives
 
@@ -35,15 +34,5 @@ To use the Monty interpreter:
    ```
    ./monty file.m
    ```
-   Replace `file.m` with the path to your Monty bytecode file.
 
-## Resources
 
-- [Stack (abstract data type)](https://https://www.digitalocean.com/community/tutorials/stack-in-c))
-- [Queue (abstract data type)](https://data-flair.training/blogs/stacks-and-queues-in-c/))
-
-## Author
-
-This project was implemented by Azuka Uteh at Alx sofware Enigineering.
-
-```
